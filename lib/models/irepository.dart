@@ -9,11 +9,11 @@ abstract class IRepository<T> {
   Future<int> update({
     required T entity,
     required String conditions,
-    required String conditionsValue,
+    required List conditionsValue,
   });
 
   Future<int> remove({
     required String conditions,
-    required String conditionsValue,
+    required List conditionsValue,
   });
 }

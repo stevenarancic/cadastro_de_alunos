@@ -13,8 +13,11 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
 
+  final _registerController = TextEditingController();
   final _nameController = TextEditingController();
   final _emailController = TextEditingController(); 
+
+  bool isEdit = false;
 
   @override
   Widget build(BuildContext context) {
@@ -34,6 +37,8 @@ class _HomeState extends State<Home> {
                   border: OutlineInputBorder(),
                 ),
                 keyboardType: TextInputType.number,
+                controller: _registerController,
+                enabled: (isEdit)? false: true,
               ),
               SizedBox(height: 5,),
               TextField(
@@ -54,19 +59,30 @@ class _HomeState extends State<Home> {
                 keyboardType: TextInputType.emailAddress,
                 controller: _emailController,
               ),
+              Row(
+                children: [
+                  Text('Edição?'),
+                  Switch(value: isEdit, onChanged: (bool status){
+                    setState(() {
+                      isEdit = !isEdit; 
+                    });
+                  }),
+                ],
+              ),
               SizedBox(height: 5,),
               Row(
                 children: [
-                  ElevatedButton(onPressed: (){
+                  ElevatedButton(onPressed: 
+                  (isEdit)? null: () {
                     saveRegister();
                   }, child: Text(
                     'Cadastrar',
                     ),
                   ),
                   Spacer(),
-                  ElevatedButton(onPressed: (){
-                    saveRegister();
-                  }, child: Text(
+                    ElevatedButton(
+                    onPressed: (isEdit? (){}: null),
+                    child: Text(
                     'Editar',
                     ),
                   ),

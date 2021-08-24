@@ -59,7 +59,17 @@ class _HomeState extends State<Home> {
                 children: [
                   ElevatedButton(onPressed: (){
                     saveRegister();
-                  }, child: Text('Cadastrar',),),
+                  }, child: Text(
+                    'Cadastrar',
+                    ),
+                  ),
+                  Spacer(),
+                  ElevatedButton(onPressed: (){
+                    saveRegister();
+                  }, child: Text(
+                    'Editar',
+                    ),
+                  ),
                 ],
               ),
             ],

@@ -9,6 +9,7 @@ class Student {
     required this.email,
   });
 
+  //faz a conversão do objeto para um JSON
   Map <String, dynamic> toMap () {
     return {
       'id': this.id,
@@ -17,6 +18,7 @@ class Student {
     };
   }
 
+  //faz a conversão do JSON para um objeto
   factory Student.fromMap(Map<String, dynamic> map) {
     return Student(
       id: map['id'],
